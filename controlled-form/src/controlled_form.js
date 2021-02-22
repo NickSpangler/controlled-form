@@ -1,7 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 const ControlledForm = () => {
     const [value, setValue] = useState('')
+
+    const handleSubmit = () => {
+        alert(value)
+        setValue('')
+    }
+
+    useEffect(
+        () => alert('The DOM was updated!')
+    )
 
     return (
         <div>
@@ -11,6 +20,9 @@ const ControlledForm = () => {
                     value={value} 
                     onChange={(e) => setValue(e.target.value) }
                     />
+            <button style={{marginLeft: '10px'}}
+                    onClick={handleSubmit}
+                    >Submit</button>
         </div>
     )
 }
